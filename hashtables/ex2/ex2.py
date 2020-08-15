@@ -1,3 +1,12 @@
+"""
+    Problem: Our tickets are all out of order.
+    
+    Solution: We can start by populating a table and using the sources as our keys, our destinations as values. Once we have those in a table, we can look up the next destination by providing the source.
+    
+    As we find each source and its corresponding destination, we can add those items to a list and return the final list.
+"""
+
+
 #  Hint:  You may not need all of these.  Remove the unused functions.
 class Ticket:
     def __init__(self, source, destination):
