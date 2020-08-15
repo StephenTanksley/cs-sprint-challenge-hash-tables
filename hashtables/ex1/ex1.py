@@ -10,21 +10,28 @@
         Because the function needs to run in linear time, I get to use a single for loop to solve this problem. No nested loops.
 
 """
-weights_3 = [4, 6, 10, 15, 16]
+weights_2 = [4, 4]
 
 
 def get_indices_of_item_weights(weights, length, limit):
 
     table = {value: key for (key, value) in enumerate(weights)}
 
-    for i in weights:
+    print(table)
 
-        if (limit - i in table) and i in table:
-            pre_format = (table[limit - i], table[i])
+    for i in weights:
+        # If I subtract item 1 from the limit and manage to find another item in the table, the reverse would be true. Item 1 plus item 2 would equal the limit. I can return item 1 and 2 in a tuple.
+        item1 = i
+        item2 = limit - i
+
+        # if item1 == item2:
+
+        if item1 and item2 in table:
+            pre_format = (table[item2], table[item1])
             formatted = tuple(sorted(pre_format, reverse=True))
             return formatted
 
     return None
 
 
-print(get_indices_of_item_weights(weights_3, 5, 21))
+print(get_indices_of_item_weights(weights_2, 2, 8))
