@@ -5,10 +5,35 @@ class Ticket:
         self.destination = destination
 
 
+# Create a dictionary for the tickets.
+table = {}
+
+
 def reconstruct_trip(tickets, length):
     """
     YOUR CODE HERE
     """
     # Your code here
 
-    return route
+    for ticket in tickets:
+        table[ticket.source] = ticket.destination
+
+    # We can populate a list to become our new route as we re-order the tickets.
+    stops = []
+
+    # First step is to find the first ticket. This will be the one with a source of "None", because we aren't coming FROM another airport.
+
+    start = table["NONE"]
+    stops.append(start)
+
+    # The ticket itself should tell you which location is next in your list.
+
+    # For each item in the length of our trip
+    for _ in range(1, length):
+
+        # We'll look up the ticket at the end of our stops list.
+        next_stop = table[stops[-1]]
+
+        # When we look up table[stops[-1]], it returns the destination. We can then use that next destination to restart the process of getting our tickets in order.
+        stops.append(next_stop)
+    return stops
