@@ -17,20 +17,13 @@ def get_indices_of_item_weights(weights, length, limit):
 
     table = {value: key for (key, value) in enumerate(weights)}
 
-    print(table)
+    for first_weight, weight in enumerate(weights):
+        second_weight = limit - weight
 
-    for i in weights:
-        # If I subtract item 1 from the limit and manage to find another item in the table, the reverse would be true. Item 1 plus item 2 would equal the limit. I can return item 1 and 2 in a tuple.
-        item1 = i
-        item2 = limit - i
-
-        # if item1 == item2:
-
-        if item1 and item2 in table:
-            pre_format = (table[item2], table[item1])
-            formatted = tuple(sorted(pre_format, reverse=True))
-            return formatted
-
+        if second_weight in table:
+            result = [first_weight, table[second_weight]]
+            result.sort(reverse=True)
+            return result
     return None
 
 
