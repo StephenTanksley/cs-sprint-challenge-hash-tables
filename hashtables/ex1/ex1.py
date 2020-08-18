@@ -8,15 +8,15 @@
         Sub-Solution: I think it would make sense to store the weight itself as the index. If we store the weight itself as the index, we can take the limit minus the weight of the first index to find the second index, then return both indexes as a tuple. When ordering the tuple, the larger weight needs to be in [0] position, the lighter index in [1] position.
         
         Because the function needs to run in linear time, I get to use a single for loop to solve this problem. No nested loops.
-
 """
-weights_2 = [4, 4]
 
 
 def get_indices_of_item_weights(weights, length, limit):
 
+    # Populate our table with weights as keys.
     table = {value: key for (key, value) in enumerate(weights)}
 
+    # First weight is the key that we provided initially when we initialized the dict comprehension.
     for first_weight, weight in enumerate(weights):
         second_weight = limit - weight
 
@@ -25,6 +25,3 @@ def get_indices_of_item_weights(weights, length, limit):
             result.sort(reverse=True)
             return result
     return None
-
-
-print(get_indices_of_item_weights(weights_2, 2, 8))

@@ -37,5 +37,15 @@ def has_negatives(a):
     return result
 
 
+"""
+    for item in a:
+        if item > 0:
+            table[item] = 1
+        
+        if item < 0 and abs(item) in table:
+            table[abs(item)] += 1
+"""
+
+
 if __name__ == "__main__":
     print(has_negatives([-1, -2, 1, 2, 3, 4, -4]))

@@ -24,7 +24,17 @@ def finder(files, queries):
     # We have to break up the filepath to get what we need from the end.
     for path in files:
         path_pieces = path.split("/")
+
+        # "/home/davidlightman/foo.txt" ===> "foo.txt"
         single_name = path_pieces[-1]
+
+        """
+        
+        Problem: We need to have a faster way of implementing table matching.
+        
+        Solution(?): Populate the table itself with the queries and then use the queries table to check against each file in the files argument.
+        
+        """
 
         # We can populate a table with all of the
         table[single_name] = []
