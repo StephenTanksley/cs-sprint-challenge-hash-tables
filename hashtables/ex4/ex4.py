@@ -20,13 +20,14 @@ def has_negatives(a):
     result = []
     negatives = []
 
-    # For every item, we want to populate a table with that item in it.
+    # For every item which is a positive integer, we want to populate a table with that item in it.
     for item in a:
         if item > 0:
             table[item] = 1
         else:
             negatives.append(item)
 
+    # We want to check the absolute value of the negatives against the positive values in the table. If a value exists there, we know that both positive and negative values exist. We can append the results there to the result list and return the list.
     for item in negatives:
         absolute_value = abs(item)
         if absolute_value in table:
